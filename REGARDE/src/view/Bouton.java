@@ -1,16 +1,20 @@
 package view;
 
+import javafx.util.Duration;
 import java.util.ArrayList;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.text.Text;
 
 public class Bouton extends Button {
 	
 	Label lab;
 	
-	public Bouton(String txt, Label l, Label l2, Label l3, controler.CalculatorControler cc1 ) {
+	public Bouton(String txt, Label l, TextArea l2, controler.CalculatorControler cc1,Text erreur ) {
 		/*txt est l'etiquette du bouton, lab est l'affichage de l'écran de la calculatrice, cc1 est le CalulatorControler
 		  que l'on utilise */
 		
@@ -50,14 +54,26 @@ public class Bouton extends Button {
 			this.setOnAction(e -> { //action d'addition, actualisation de l'affichage
 				if(cc1.model.getTab().size()>=2) {
 	             cc1.model.add();
-	             lab.setText(cc1.model.getAccu());
+	             lab.setText("0");
 	             Text text =new Text(lab.getText());
 	             lab.setLayoutX(300 - text.getLayoutBounds().getWidth()*3.5);
-	             l2.setText("Mem: " + cc1.model.getTab().toString());
-	             l3.setText(lab.getText());
-	             Text text1 =new Text(l3.getText());
-				 l3.setLayoutX(300 - text1.getLayoutBounds().getWidth()*1.5);
+	             String textp ="";
+					for(int i = 0; i<cc1.model.getTab().size();i++) {
+						textp = textp + cc1.model.getTab().get(i) + "\n";
+					}
+					l2.setText("Pile: \n" + textp);
+	             
 				} 
+				else {
+					erreur.setVisible(true);
+
+		            // Créez une Timeline pour masquer le texte après 3 secondes
+		            Duration duree = Duration.seconds(2);
+		            KeyFrame keyFrame = new KeyFrame(duree, event -> {erreur.setVisible(false);});
+		            
+		            Timeline timeline = new Timeline(keyFrame);
+		            timeline.play();
+				}
 			});
 				
 		}
@@ -70,13 +86,25 @@ public class Bouton extends Button {
 			this.setOnAction(e -> { //action de soustraction, actualisation de l'affichage
 				if(cc1.model.getTab().size()>=2) {
 	             cc1.model.substract();
-	             lab.setText(cc1.model.getAccu());
+	             lab.setText("0");
 	             Text text =new Text(lab.getText());
 	             lab.setLayoutX(300 - text.getLayoutBounds().getWidth()*3.5);
-	             l2.setText("Mem: " + cc1.model.getTab().toString());
-	             l3.setText(lab.getText());
-	             Text text1 =new Text(l3.getText());
-				 l3.setLayoutX(300 - text1.getLayoutBounds().getWidth()*1.5);
+	             String textp ="";
+					for(int i = 0; i<cc1.model.getTab().size();i++) {
+						textp = textp + cc1.model.getTab().get(i) + "\n";
+					}
+					l2.setText("Pile: \n" + textp);
+	            
+				}
+				else {
+					erreur.setVisible(true);
+
+		            // Créez une Timeline pour masquer le texte après 3 secondes
+		            Duration duree = Duration.seconds(2);
+		            KeyFrame keyFrame = new KeyFrame(duree, event -> {erreur.setVisible(false);});
+		            
+		            Timeline timeline = new Timeline(keyFrame);
+		            timeline.play();
 				}
 	        });
 		}
@@ -89,14 +117,25 @@ public class Bouton extends Button {
 			this.setOnAction(e -> { //action de multiplication, actualisation de l'affichage
 				if(cc1.model.getTab().size()>=2) {
 		             cc1.model.multiply();
-		             lab.setText(cc1.model.getAccu());
+		             lab.setText("0");
 		             Text text =new Text(lab.getText());
 					 lab.setLayoutX(300 - text.getLayoutBounds().getWidth()*3.5);
-					 l2.setText("Mem: " + cc1.model.getTab().toString());
-					 l3.setText(lab.getText());
-					 Text text1 =new Text(l3.getText());
-					 l3.setLayoutX(300 - text1.getLayoutBounds().getWidth()*1.5);
+					 String textp ="";
+						for(int i = 0; i<cc1.model.getTab().size();i++) {
+							textp = textp + cc1.model.getTab().get(i) + "\n";
+						}
+						l2.setText("Pile: \n" + textp);
 					}
+				else {
+					erreur.setVisible(true);
+
+		            // Créez une Timeline pour masquer le texte après 3 secondes
+		            Duration duree = Duration.seconds(2);
+		            KeyFrame keyFrame = new KeyFrame(duree, event -> {erreur.setVisible(false);});
+		            
+		            Timeline timeline = new Timeline(keyFrame);
+		            timeline.play();
+				}
 		        });
 		}
 		
@@ -107,17 +146,28 @@ public class Bouton extends Button {
 		    this.setLayoutY(420);
 		     
 			this.setOnAction(e -> { //action de division, actualisation de l'affichage
-				if(cc1.model.getTab().size()>=2) {
+				if(cc1.model.getTab().size()>=2 && cc1.model.getTab().get(cc1.model.getTab().size()-1) != 0) {
 		             cc1.model.divide();
-		             lab.setText(cc1.model.getAccu());
+		             lab.setText("0");
 		             Text text =new Text(lab.getText());
 					 lab.setLayoutX(300 - text.getLayoutBounds().getWidth()*3.5);
-					 l2.setText("Mem: " + cc1.model.getTab().toString());
-					 l3.setText(lab.getText());
-					 Text text1 =new Text(l3.getText());
-					 l3.setLayoutX(300 - text1.getLayoutBounds().getWidth()*1.5);
+					 String textp ="";
+						for(int i = 0; i<cc1.model.getTab().size();i++) {
+							textp = textp + cc1.model.getTab().get(i) + "\n";
+						}
+						l2.setText("Pile: \n" + textp);
 					}
-		        });
+				else {
+					erreur.setVisible(true);
+
+		            // Créez une Timeline pour masquer le texte après 3 secondes
+		            Duration duree = Duration.seconds(2);
+		            KeyFrame keyFrame = new KeyFrame(duree, event -> {erreur.setVisible(false);});
+		            
+		            Timeline timeline = new Timeline(keyFrame);
+		            timeline.play();
+				}
+		   });
 		}
 		
 		else if (txt == "clr") { //si c'est le bouton Clear
@@ -143,7 +193,7 @@ public class Bouton extends Button {
 		        cc1.model.setAccu("");
 		        cc1.model.setTab(new ArrayList<>());
 				lab.setText("0");
-				l2.setText("Mem: ");
+				l2.setText("Pile: \n");
 			});
 		}
 		
@@ -153,11 +203,25 @@ public class Bouton extends Button {
 			this.setLayoutX(120);
 		    this.setLayoutY(420);
 			
-			this.setOnAction(e -> { //clear l'affichage
-		        lab.setText(lab.getText() + ".");
-		        cc1.model.setAccu(cc1.model.getAccu() + ".");});
-				Text text =new Text(lab.getText());
-				lab.setLayoutX(300 - text.getLayoutBounds().getWidth()*3.5);
+			this.setOnAction(e -> {//clear l'affichage
+				if(!lab.getText().contains(".")) {
+			        lab.setText(lab.getText() + ".");
+			        cc1.model.setAccu(cc1.model.getAccu() + ".");
+			        Text text =new Text(lab.getText());
+					lab.setLayoutX(300 - text.getLayoutBounds().getWidth()*3.5);
+				}
+				else {
+					erreur.setVisible(true);
+
+		            // Créez une Timeline pour masquer le texte après 3 secondes
+		            Duration duree = Duration.seconds(2);
+		            KeyFrame keyFrame = new KeyFrame(duree, event -> {erreur.setVisible(false);});
+		            
+		            Timeline timeline = new Timeline(keyFrame);
+		            timeline.play();
+				}
+			});
+					
 		}
 		
 		else if (txt == "+/-") { //si c'est le bouton changement de signe
@@ -166,12 +230,29 @@ public class Bouton extends Button {
 			this.setLayoutX(355);
 		    this.setLayoutY(365);
 			
-			this.setOnAction(e -> { //change le signe du nombre
-		        cc1.model.opposite();
-		        l2.setText("Mem: " + cc1.model.getTab().toString());
-		        lab.setText(cc1.model.getAccu());
-		        Text text =new Text(lab.getText());
-				lab.setLayoutX(300 - text.getLayoutBounds().getWidth()*3.5);});
+			this.setOnAction(e -> {
+				if(cc1.model.getTab().size()>=1){//change le signe du nombre
+			        cc1.model.opposite();
+			        String textp ="";
+					for(int i = 0; i<cc1.model.getTab().size();i++) {
+						textp = textp + cc1.model.getTab().get(i) + "\n";
+					}
+					l2.setText("Pile: \n" + textp);
+					lab.setText("0");
+		            Text text =new Text(lab.getText());
+					lab.setLayoutX(300 - text.getLayoutBounds().getWidth()*3.5);
+				}
+				else {
+					erreur.setVisible(true);
+
+		            // Créez une Timeline pour masquer le texte après 3 secondes
+		            Duration duree = Duration.seconds(2);
+		            KeyFrame keyFrame = new KeyFrame(duree, event -> {erreur.setVisible(false);});
+		            
+		            Timeline timeline = new Timeline(keyFrame);
+		            timeline.play();
+				}
+			});
 		}
 		
 		else if (txt == "<>") { //si c'est le bouton push
@@ -181,11 +262,12 @@ public class Bouton extends Button {
 		    this.setLayoutY(420);
 			
 			this.setOnAction(e -> { //change le signe du nombre
-				l3.setText(lab.getText());
-				Text text1 =new Text(l3.getText());
-				l3.setLayoutX(300 - text1.getLayoutBounds().getWidth()*1.5);
 				cc1.model.push();
-	    	 	l2.setText("Mem: " + cc1.model.getTab().toString());
+				String textp ="";
+				for(int i = 0; i<cc1.model.getTab().size();i++) {
+					textp = textp + cc1.model.getTab().get(i) + "\n";
+				}
+				l2.setText("Pile: \n" + textp);
 	    	 	lab.setText("0");
 	    	 	Text text =new Text(lab.getText());
 				lab.setLayoutX(300 - text.getLayoutBounds().getWidth()*3.5);
@@ -222,11 +304,11 @@ public class Bouton extends Button {
 			this.setOnAction(e -> { //swap et actualise la visualisation de l'accu
 				if(cc1.model.getTab().size()>=2) {
 					cc1.model.swap();
-					l2.setText("Mem: " + cc1.model.getTab().toString());
-					l3.setText(cc1.model.getTab().get(0).toString());
-					Text text1 =new Text(l3.getText());
-					l3.setLayoutX(300 - text1.getLayoutBounds().getWidth()*1.5);
-		    	 		
+					String textp ="";
+					for(int i = 0; i<cc1.model.getTab().size();i++) {
+						textp = textp + cc1.model.getTab().get(i) + "\n";
+					}
+					l2.setText("Pile: \n" + textp);
 				}
 			});
 		}

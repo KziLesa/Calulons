@@ -7,9 +7,9 @@ public class CalculatorControler implements CalculatorControlerInterface {
 	view.CalculatorGUI cGUI;
 	
 	
-	public CalculatorControler(model.CalculatorModel model, view.CalculatorGUI cGUI) {
+	public CalculatorControler(model.CalculatorModel model) {
 		this.model = model;
-		this.cGUI = cGUI;
+		
 	}
 	public void change(String accu) {
 		// TODO Auto-generated method stub
