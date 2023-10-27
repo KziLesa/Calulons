@@ -33,22 +33,22 @@ public class Bouton extends Button {
 				//System.out.println(text.getLayoutBounds().getWidth());
 	            cc1.change(lab.getText());} //modif accu
 			);
-			if (txt=="1"||txt=="4"||txt=="7") this.setLayoutX(40);	//placement des boutons
-			if (txt=="2"||txt=="5"||txt=="8") this.setLayoutX(120);
-			if (txt=="3"||txt=="6"||txt=="9") this.setLayoutX(200);
+			if (txt=="1"||txt=="4"||txt=="7") this.setLayoutX(30);	//placement des boutons
+			if (txt=="2"||txt=="5"||txt=="8") this.setLayoutX(110);
+			if (txt=="3"||txt=="6"||txt=="9") this.setLayoutX(190);
 			
 				
 			if (txt=="1"||txt=="2"||txt=="3") this.setLayoutY(180);
 			if (txt=="4"||txt=="5"||txt=="6") this.setLayoutY(260);
 			if (txt=="7"||txt=="8"||txt=="9") this.setLayoutY(340);
 			
-			if (txt=="0") {this.setLayoutX(40);this.setLayoutY(420);} // si c'est 0
+			if (txt=="0") {this.setLayoutX(30);this.setLayoutY(420);} // si c'est 0
 		}
 		
 		else if (txt == "+") { //si c'est le bouton +
 			
 			this.setPrefSize(70, 70);
-			this.setLayoutX(280);
+			this.setLayoutX(270);
 		    this.setLayoutY(180);
 			
 			this.setOnAction(e -> { //action d'addition, actualisation de l'affichage
@@ -67,7 +67,7 @@ public class Bouton extends Button {
 				else {
 					erreur.setVisible(true);
 
-		            // Créez une Timeline pour masquer le texte après 3 secondes
+		            // crée une Timeline pour masquer le texte après 3 secondes
 		            Duration duree = Duration.seconds(2);
 		            KeyFrame keyFrame = new KeyFrame(duree, event -> {erreur.setVisible(false);});
 		            
@@ -80,7 +80,7 @@ public class Bouton extends Button {
 		else if (txt == "-") { //si c'est le bouton -
 			
 			this.setPrefSize(70, 70);
-			this.setLayoutX(280);
+			this.setLayoutX(270);
 		    this.setLayoutY(260);
 			
 			this.setOnAction(e -> { //action de soustraction, actualisation de l'affichage
@@ -99,7 +99,7 @@ public class Bouton extends Button {
 				else {
 					erreur.setVisible(true);
 
-		            // Créez une Timeline pour masquer le texte après 3 secondes
+		            // crée une Timeline pour masquer le texte après 3 secondes
 		            Duration duree = Duration.seconds(2);
 		            KeyFrame keyFrame = new KeyFrame(duree, event -> {erreur.setVisible(false);});
 		            
@@ -111,7 +111,7 @@ public class Bouton extends Button {
 		else if (txt == "X") { //si c'est le bouton X
 			
 			this.setPrefSize(70, 70);
-			this.setLayoutX(280);
+			this.setLayoutX(270);
 		    this.setLayoutY(340);
 			
 			this.setOnAction(e -> { //action de multiplication, actualisation de l'affichage
@@ -129,7 +129,7 @@ public class Bouton extends Button {
 				else {
 					erreur.setVisible(true);
 
-		            // Créez une Timeline pour masquer le texte après 3 secondes
+		            // crée une Timeline pour masquer le texte après 3 secondes
 		            Duration duree = Duration.seconds(2);
 		            KeyFrame keyFrame = new KeyFrame(duree, event -> {erreur.setVisible(false);});
 		            
@@ -142,7 +142,7 @@ public class Bouton extends Button {
 		else if (txt == "/") { //si c'est le bouton /
 			
 			this.setPrefSize(70, 70);
-			this.setLayoutX(280);
+			this.setLayoutX(270);
 		    this.setLayoutY(420);
 		     
 			this.setOnAction(e -> { //action de division, actualisation de l'affichage
@@ -160,7 +160,7 @@ public class Bouton extends Button {
 				else {
 					erreur.setVisible(true);
 
-		            // Créez une Timeline pour masquer le texte après 3 secondes
+		            // crée une Timeline pour masquer le texte après 3 secondes
 		            Duration duree = Duration.seconds(2);
 		            KeyFrame keyFrame = new KeyFrame(duree, event -> {erreur.setVisible(false);});
 		            
@@ -174,7 +174,7 @@ public class Bouton extends Button {
 			
 			this.setPrefSize(40, 20); 
 			this.setLayoutX(355);
-		    this.setLayoutY(465);
+		    this.setLayoutY(265);
 		     
 			this.setOnAction(e -> { //clear l'affichage
 		        lab.setText("0");
@@ -187,7 +187,7 @@ public class Bouton extends Button {
 			
 			this.setPrefSize(40, 20); 
 			this.setLayoutX(355);
-		    this.setLayoutY(415);
+		    this.setLayoutY(465);
 			
 			this.setOnAction(e -> { //vide Accu et vide la liste du CalculatorControler
 		        cc1.model.setAccu("");
@@ -200,7 +200,7 @@ public class Bouton extends Button {
 		else if (txt == ",") { //si c'est le bouton virgule
 			
 			this.setPrefSize(70, 70); 
-			this.setLayoutX(120);
+			this.setLayoutX(110);
 		    this.setLayoutY(420);
 			
 			this.setOnAction(e -> {//clear l'affichage
@@ -213,7 +213,7 @@ public class Bouton extends Button {
 				else {
 					erreur.setVisible(true);
 
-		            // Créez une Timeline pour masquer le texte après 3 secondes
+		            // crée une Timeline pour masquer le texte après 3 secondes
 		            Duration duree = Duration.seconds(2);
 		            KeyFrame keyFrame = new KeyFrame(duree, event -> {erreur.setVisible(false);});
 		            
@@ -245,7 +245,7 @@ public class Bouton extends Button {
 				else {
 					erreur.setVisible(true);
 
-		            // Créez une Timeline pour masquer le texte après 3 secondes
+		            // crée une Timeline pour masquer le texte après 3 secondes
 		            Duration duree = Duration.seconds(2);
 		            KeyFrame keyFrame = new KeyFrame(duree, event -> {erreur.setVisible(false);});
 		            
@@ -258,7 +258,7 @@ public class Bouton extends Button {
 		else if (txt == "<>") { //si c'est le bouton push
 			
 			this.setPrefSize(70, 70); 
-			this.setLayoutX(200);
+			this.setLayoutX(190);
 		    this.setLayoutY(420);
 			
 			this.setOnAction(e -> { //change le signe du nombre
@@ -278,7 +278,7 @@ public class Bouton extends Button {
 			
 			this.setPrefSize(40, 20); 
 			this.setLayoutX(355);
-		    this.setLayoutY(315);
+		    this.setLayoutY(215);
 			
 			this.setOnAction(e -> { //efface un caractère d'une chaîne, actualise l'affichage
 				if(lab.getText().length()>0) {
@@ -295,11 +295,11 @@ public class Bouton extends Button {
 			});
 				
 		}
-		else if (txt == "<->") { //si c'est le bouton pswap
+		else if (txt == "<->") { //si c'est le bouton swap
 			
 			this.setPrefSize(40, 20); 
 			this.setLayoutX(355);
-		    this.setLayoutY(265);
+			this.setLayoutY(315);
 			
 			this.setOnAction(e -> { //swap et actualise la visualisation de l'accu
 				if(cc1.model.getTab().size()>=2) {
@@ -309,6 +309,43 @@ public class Bouton extends Button {
 						textp = textp + cc1.model.getTab().get(i) + "\n";
 					}
 					l2.setText("Pile: \n" + textp);
+				}
+				else {
+					erreur.setVisible(true);
+
+		            // crée une Timeline pour masquer le texte après 3 secondes
+		            Duration duree = Duration.seconds(2);
+		            KeyFrame keyFrame = new KeyFrame(duree, event -> {erreur.setVisible(false);});
+		            
+		            Timeline timeline = new Timeline(keyFrame);
+		            timeline.play();
+				}
+			});
+		}
+		else if (txt == "○") { //si c'est le bouton drop
+			
+			this.setPrefSize(40, 20); 
+			this.setLayoutX(355);
+			this.setLayoutY(415);
+			
+			this.setOnAction(e -> { //enlève le dernier nombre de la pile
+				if(cc1.model.getTab().size()>=1) {
+					cc1.model.drop();
+					String textp ="";
+					for(int i = 0; i<cc1.model.getTab().size();i++) {
+						textp = textp + cc1.model.getTab().get(i) + "\n";
+					}
+					l2.setText("Pile: \n" + textp);
+				}
+				else {
+					erreur.setVisible(true);
+
+		            // crée une Timeline pour masquer le texte après 3 secondes
+		            Duration duree = Duration.seconds(2);
+		            KeyFrame keyFrame = new KeyFrame(duree, event -> {erreur.setVisible(false);});
+		            
+		            Timeline timeline = new Timeline(keyFrame);
+		            timeline.play();
 				}
 			});
 		}

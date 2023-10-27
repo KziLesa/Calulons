@@ -35,7 +35,7 @@ public class CalculatorGUI extends Application implements CalcultorGUIInterface 
         
         Text erreur = new Text("Action impossible");
         erreur.setFill(Color.RED);
-        erreur.setLayoutX(213);
+        erreur.setLayoutX(190);
         erreur.setLayoutY(55);
         erreur.setFont(new javafx.scene.text.Font(20));
         erreur.setVisible(false);
@@ -68,6 +68,7 @@ public class CalculatorGUI extends Application implements CalcultorGUIInterface 
 		view.Bouton bPush = new view.Bouton("<>", label, label2, cc1, erreur);
 		view.Bouton bSuppr = new view.Bouton("<-", label, label2, cc1, erreur);
 		view.Bouton bSwap = new view.Bouton("<->", label, label2, cc1, erreur);
+		view.Bouton bDrop = new view.Bouton("○", label, label2, cc1, erreur);
 		// TODO Auto-generated method stub
 
 		Pane grid = new Pane();
@@ -76,7 +77,8 @@ public class CalculatorGUI extends Application implements CalcultorGUIInterface 
 	    //ecran.setFill(Color.BLACK);
 	    
         // Créer la scène
-	    grid.getChildren().addAll(b1, b2, b3, bP,bSwap, //mettre les boutons dans le Pane ainsi que des labels de l'écran
+	    grid.getChildren().addAll(bDrop,
+	    		b1, b2, b3, bP,bSwap, //mettre les boutons dans le Pane ainsi que des labels de l'écran
  					b4, b5, b6, bM, bCS, bSuppr,
  					b7, b8, b9, bF, bRst,
  					b0,bV,bPush, bD, bClr,
@@ -87,6 +89,7 @@ public class CalculatorGUI extends Application implements CalcultorGUIInterface 
         // Définir la scène pour la fenêtre
         arg0.setTitle("Calculatrice");
         arg0.setScene(scene);
+        arg0.setResizable(false);
         arg0.show();
 		
 	}
