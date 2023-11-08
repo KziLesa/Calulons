@@ -1,5 +1,7 @@
 package model;
 
+import java.util.List;
+
 public interface CalculatorModelInterface {
 	public abstract void add();
 	public abstract void substract();	
@@ -11,5 +13,8 @@ public interface CalculatorModelInterface {
 	public abstract void drop();
 	public abstract void swap();
 	public abstract void clear();
-	
+	public abstract void setAccu(String accu);
+	public abstract void setTab(List<Double> tab);
+	public abstract List<Double> getTab();
+	public abstract String getAccu();
 }

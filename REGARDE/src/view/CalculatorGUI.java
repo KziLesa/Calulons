@@ -15,8 +15,8 @@ public class CalculatorGUI extends Application implements CalcultorGUIInterface 
 	@Override
 	public void start(Stage arg0) throws Exception {
 		// TODO Auto-generated method stub
-		model.CalculatorModel mod1 = new model.CalculatorModel();
-		controler.CalculatorControler cc1 = new controler.CalculatorControler(mod1);
+		model.CalculatorModelInterface mod1 = new model.CalculatorModel();
+		controler.CalculatorControlerInterface cc1 = new controler.CalculatorControler(mod1);
 		
 		TextArea label2 = new TextArea("Pile: ");
 	    label2.setPrefSize(380, 150);

@@ -3,6 +3,7 @@ package view;
 import javafx.util.Duration;
 import java.util.ArrayList;
 
+import controler.CalculatorControlerInterface;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.control.Button;
@@ -14,7 +15,7 @@ public class Bouton extends Button {
 	
 	Label lab;
 	
-	public Bouton(String txt, Label l, TextArea l2, controler.CalculatorControler cc1,Text erreur ) {
+	public Bouton(String txt, Label l, TextArea l2, CalculatorControlerInterface cc1,Text erreur ) {
 		/*txt est l'etiquette du bouton, lab est l'affichage de l'écran de la calculatrice, cc1 est le CalulatorControler
 		  que l'on utilise */
 		
@@ -52,14 +53,14 @@ public class Bouton extends Button {
 		    this.setLayoutY(180);
 			
 			this.setOnAction(e -> { //action d'addition, actualisation de l'affichage
-				if(cc1.model.getTab().size()>=2) {
-	             cc1.model.add();
+				if(cc1.getModel().getTab().size()>=2) {
+	             cc1.getModel().add();
 	             lab.setText("0");
 	             Text text =new Text(lab.getText());
 	             lab.setLayoutX(300 - text.getLayoutBounds().getWidth()*3.5);
 	             String textp ="";
-					for(int i = 0; i<cc1.model.getTab().size();i++) {
-						textp = textp + cc1.model.getTab().get(i) + "\n";
+					for(int i = 0; i<cc1.getModel().getTab().size();i++) {
+						textp = textp + cc1.getModel().getTab().get(i) + "\n";
 					}
 					l2.setText("Pile: \n" + textp);
 	             
@@ -84,14 +85,14 @@ public class Bouton extends Button {
 		    this.setLayoutY(260);
 			
 			this.setOnAction(e -> { //action de soustraction, actualisation de l'affichage
-				if(cc1.model.getTab().size()>=2) {
-	             cc1.model.substract();
+				if(cc1.getModel().getTab().size()>=2) {
+	             cc1.getModel().substract();
 	             lab.setText("0");
 	             Text text =new Text(lab.getText());
 	             lab.setLayoutX(300 - text.getLayoutBounds().getWidth()*3.5);
 	             String textp ="";
-					for(int i = 0; i<cc1.model.getTab().size();i++) {
-						textp = textp + cc1.model.getTab().get(i) + "\n";
+					for(int i = 0; i<cc1.getModel().getTab().size();i++) {
+						textp = textp + cc1.getModel().getTab().get(i) + "\n";
 					}
 					l2.setText("Pile: \n" + textp);
 	            
@@ -115,14 +116,14 @@ public class Bouton extends Button {
 		    this.setLayoutY(340);
 			
 			this.setOnAction(e -> { //action de multiplication, actualisation de l'affichage
-				if(cc1.model.getTab().size()>=2) {
-		             cc1.model.multiply();
+				if(cc1.getModel().getTab().size()>=2) {
+		             cc1.getModel().multiply();
 		             lab.setText("0");
 		             Text text =new Text(lab.getText());
 					 lab.setLayoutX(300 - text.getLayoutBounds().getWidth()*3.5);
 					 String textp ="";
-						for(int i = 0; i<cc1.model.getTab().size();i++) {
-							textp = textp + cc1.model.getTab().get(i) + "\n";
+						for(int i = 0; i<cc1.getModel().getTab().size();i++) {
+							textp = textp + cc1.getModel().getTab().get(i) + "\n";
 						}
 						l2.setText("Pile: \n" + textp);
 					}
@@ -146,14 +147,14 @@ public class Bouton extends Button {
 		    this.setLayoutY(420);
 		     
 			this.setOnAction(e -> { //action de division, actualisation de l'affichage
-				if(cc1.model.getTab().size()>=2 && cc1.model.getTab().get(cc1.model.getTab().size()-1) != 0) {
-		             cc1.model.divide();
+				if(cc1.getModel().getTab().size()>=2 && cc1.getModel().getTab().get(cc1.getModel().getTab().size()-1) != 0) {
+		             cc1.getModel().divide();
 		             lab.setText("0");
 		             Text text =new Text(lab.getText());
 					 lab.setLayoutX(300 - text.getLayoutBounds().getWidth()*3.5);
 					 String textp ="";
-						for(int i = 0; i<cc1.model.getTab().size();i++) {
-							textp = textp + cc1.model.getTab().get(i) + "\n";
+						for(int i = 0; i<cc1.getModel().getTab().size();i++) {
+							textp = textp + cc1.getModel().getTab().get(i) + "\n";
 						}
 						l2.setText("Pile: \n" + textp);
 					}
@@ -190,8 +191,8 @@ public class Bouton extends Button {
 		    this.setLayoutY(465);
 			
 			this.setOnAction(e -> { //vide Accu et vide la liste du CalculatorControler
-		        cc1.model.setAccu("");
-		        cc1.model.setTab(new ArrayList<>());
+		        cc1.getModel().setAccu("");
+		        cc1.getModel().setTab(new ArrayList<>());
 				lab.setText("0");
 				l2.setText("Pile: \n");
 			});
@@ -206,7 +207,7 @@ public class Bouton extends Button {
 			this.setOnAction(e -> {//clear l'affichage
 				if(!lab.getText().contains(".")) {
 			        lab.setText(lab.getText() + ".");
-			        cc1.model.setAccu(cc1.model.getAccu() + ".");
+			        cc1.getModel().setAccu(cc1.getModel().getAccu() + ".");
 			        Text text =new Text(lab.getText());
 					lab.setLayoutX(300 - text.getLayoutBounds().getWidth()*3.5);
 				}
@@ -231,11 +232,11 @@ public class Bouton extends Button {
 		    this.setLayoutY(365);
 			
 			this.setOnAction(e -> {
-				if(cc1.model.getTab().size()>=1){//change le signe du nombre
-			        cc1.model.opposite();
+				if(cc1.getModel().getTab().size()>=1){//change le signe du nombre
+			        cc1.getModel().opposite();
 			        String textp ="";
-					for(int i = 0; i<cc1.model.getTab().size();i++) {
-						textp = textp + cc1.model.getTab().get(i) + "\n";
+					for(int i = 0; i<cc1.getModel().getTab().size();i++) {
+						textp = textp + cc1.getModel().getTab().get(i) + "\n";
 					}
 					l2.setText("Pile: \n" + textp);
 					lab.setText("0");
@@ -262,10 +263,10 @@ public class Bouton extends Button {
 		    this.setLayoutY(420);
 			
 			this.setOnAction(e -> { //change le signe du nombre
-				cc1.model.push();
+				cc1.getModel().push();
 				String textp ="";
-				for(int i = 0; i<cc1.model.getTab().size();i++) {
-					textp = textp + cc1.model.getTab().get(i) + "\n";
+				for(int i = 0; i<cc1.getModel().getTab().size();i++) {
+					textp = textp + cc1.getModel().getTab().get(i) + "\n";
 				}
 				l2.setText("Pile: \n" + textp);
 	    	 	lab.setText("0");
@@ -302,11 +303,11 @@ public class Bouton extends Button {
 			this.setLayoutY(315);
 			
 			this.setOnAction(e -> { //swap et actualise la visualisation de l'accu
-				if(cc1.model.getTab().size()>=2) {
-					cc1.model.swap();
+				if(cc1.getModel().getTab().size()>=2) {
+					cc1.getModel().swap();
 					String textp ="";
-					for(int i = 0; i<cc1.model.getTab().size();i++) {
-						textp = textp + cc1.model.getTab().get(i) + "\n";
+					for(int i = 0; i<cc1.getModel().getTab().size();i++) {
+						textp = textp + cc1.getModel().getTab().get(i) + "\n";
 					}
 					l2.setText("Pile: \n" + textp);
 				}
@@ -329,11 +330,11 @@ public class Bouton extends Button {
 			this.setLayoutY(415);
 			
 			this.setOnAction(e -> { //enlève le dernier nombre de la pile
-				if(cc1.model.getTab().size()>=1) {
-					cc1.model.drop();
+				if(cc1.getModel().getTab().size()>=1) {
+					cc1.getModel().drop();
 					String textp ="";
-					for(int i = 0; i<cc1.model.getTab().size();i++) {
-						textp = textp + cc1.model.getTab().get(i) + "\n";
+					for(int i = 0; i<cc1.getModel().getTab().size();i++) {
+						textp = textp + cc1.getModel().getTab().get(i) + "\n";
 					}
 					l2.setText("Pile: \n" + textp);
 				}

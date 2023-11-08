@@ -2,12 +2,13 @@ package controler;
 
 import java.util.List;
 
+import model.CalculatorModelInterface;
+
 public class CalculatorControler implements CalculatorControlerInterface {
-	public model.CalculatorModel model;
-	view.CalculatorGUI cGUI;
+	public model.CalculatorModelInterface model;
 	
 	
-	public CalculatorControler(model.CalculatorModel model) {
+	public CalculatorControler(model.CalculatorModelInterface model) {
 		this.model = model;
 		
 	}
@@ -19,6 +20,11 @@ public class CalculatorControler implements CalculatorControlerInterface {
 	public void change(List<Double> stackData) {
 		// TODO Auto-generated method stub
 		model.setTab(stackData);
+	}
+	@Override
+	public CalculatorModelInterface getModel() {
+		// TODO Auto-generated method stub
+		return model;
 	}
 
 }

@@ -10,9 +10,7 @@ public class CalculatorModel implements CalculatorModelInterface {
 	public String getAccu() {
 		return accu;
 	}
-	public void setAccu(String accu) {
-		this.accu = accu;
-	}
+	
 	public List<Double> getTab() {
 		return tab;
 	}
@@ -87,6 +85,11 @@ public class CalculatorModel implements CalculatorModelInterface {
 		// TODO Auto-generated method stub
 		tab.clear();
 	}
+	
+	public void setAccu(String accu) {
+		this.accu = accu;
+	}
+
 
 
 }
