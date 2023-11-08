@@ -3,6 +3,8 @@ package view;
 import java.util.List;
 
 public interface CalcultorGUIInterface {
+	
+	//Interface GUI
 	public static void affiche() {
 		
 	}

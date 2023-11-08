@@ -18,6 +18,7 @@ public class CalculatorGUI extends Application implements CalcultorGUIInterface 
 		model.CalculatorModelInterface mod1 = new model.CalculatorModel();
 		controler.CalculatorControlerInterface cc1 = new controler.CalculatorControler(mod1);
 		
+		//affichage de la pile
 		TextArea label2 = new TextArea("Pile: ");
 	    label2.setPrefSize(380, 150);
 	    label2.setMinWidth(14);
@@ -25,7 +26,8 @@ public class CalculatorGUI extends Application implements CalcultorGUIInterface 
 	    label2.setLayoutY(10);  //position y fixe
 	    label2.setFont(new javafx.scene.text.Font(20));
 	    label2.setStyle("-fx-text-fill: black;"); 
-	        
+	      
+	    //affichage de l'entrée
 		Label label = new Label("0"); //affiche le nombre qu'on est en train de rentrer
 		label.setMinWidth(300 - label.getLayoutBounds().getWidth()*3.5);
         label.setLayoutX(275);  // position X fixe
@@ -33,6 +35,7 @@ public class CalculatorGUI extends Application implements CalcultorGUIInterface 
 
         label.setFont(new javafx.scene.text.Font(50));
         
+        //affichage message d'erreur
         Text erreur = new Text("Action impossible");
         erreur.setFill(Color.RED);
         erreur.setLayoutX(190);
@@ -73,8 +76,6 @@ public class CalculatorGUI extends Application implements CalcultorGUIInterface 
 
 		Pane grid = new Pane();
  
-	    //Rectangle ecran = new Rectangle(10, 10, 380, 150);
-	    //ecran.setFill(Color.BLACK);
 	    
         // Créer la scène
 	    grid.getChildren().addAll(bDrop,
@@ -85,7 +86,6 @@ public class CalculatorGUI extends Application implements CalcultorGUIInterface 
  					label2, label, erreur);
         Scene scene = new Scene(grid, 400, 500);
         
-        //System.out.println("bjr");
         // Définir la scène pour la fenêtre
         arg0.setTitle("Calculatrice");
         arg0.setScene(scene);

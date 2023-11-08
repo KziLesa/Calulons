@@ -1,0 +1,20 @@
+Modifications depuis le passage à l'oral:
+
+- Impossible de diviser par 0.
+- Ajout du bouton drop
+- Utilisation du GUI
+- Pile affichée en plus gros et possibilité de scroll
+- Plus possible de faire double virgule, de drop, de changer de signe ou de swap
+sans éléments dans la pile
+- Ajout du message d'erreur lorsque l'on essaye de faire une action impossible
+- Utilisation des interfaces
+- Description des boutons spéciaux:
+	"+, -, x, /": opérations élémentaires
+	","  :ajout d'une virgule à l'entrée
+	"<>" :push, placé l'entrée dans la pile
+	"<-" :effacer un caractère de l'entrée
+	"clr":effacer tous mes caractères de l'entrée
+	"<->":bouton swap, échange de place les deux éléments placés en derniers dans la pile
+	"+/-":changer le signe du dernier élément placé dans la pile
+	"o"  :bouton drop, retire le dernier élément placé dans la pile
+	"rs" :bouton reset, drop tous les éléments de la pile

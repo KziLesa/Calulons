@@ -3,6 +3,8 @@ package model;
 import java.util.List;
 
 public interface CalculatorModelInterface {
+	
+	//Interface modèle calulateur 
 	public abstract void add();
 	public abstract void substract();	
 	public abstract void multiply();	
